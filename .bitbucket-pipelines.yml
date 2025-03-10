@@ -7,7 +7,7 @@ pipelines:
           name: Deploy to EC2
           script:
             - echo "Deploying to AWS EC2..."
-            - ssh -o StrictHostKeyChecking=no ec2-user@your-ec2-ip "
+            - ssh -o StrictHostKeyChecking=no ec2-user@43.204.237.25 "
                 cd your-repo &&
                 git pull origin develop &&
                 npm install &&
