@@ -1,0 +1,15 @@
+image: node:18
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Deploy to EC2
+          script:
+            - echo "Deploying to AWS EC2..."
+            - ssh -o StrictHostKeyChecking=no ec2-user@your-ec2-ip "
+                cd your-repo &&
+                git pull origin develop &&
+                npm install &&
+                pm2 restart node-app
+              "
